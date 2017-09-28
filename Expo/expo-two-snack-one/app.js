@@ -9,10 +9,8 @@ export default class App extends Component {
         <Text style={styles.paragraph}>
           Change code in the editor and watch it change on your phone!
           Save to get a shareable url. You get a new url each time you save.
-          
-          what !??!?! 
         </Text>
-        <Text>
+        <Text style={styles.paragraph}>
           This is amazing !!
         </Text>
       </View>
