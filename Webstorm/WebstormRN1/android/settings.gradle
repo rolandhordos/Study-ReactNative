@@ -1,0 +1,3 @@
+rootProject.name = 'WebstormRN1'
+
+include ':app'
