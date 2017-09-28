@@ -1,3 +1,8 @@
 {
-  "expoServerPort": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 19668,
+  "expoServerNgrokUrl": "https://68-ctt.rolandhordos.expo-two-snack-one.exp.direct",
+  "packagerNgrokUrl": "https://packager.68-ctt.rolandhordos.expo-two-snack-one.exp.direct",
+  "ngrokPid": 19759
 }
