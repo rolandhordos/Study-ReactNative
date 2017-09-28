@@ -8,6 +8,10 @@ Well!  Apparently there's nothing like jumping right in.  Expo will certainly ig
 
 ## IDEs and Editors
 
+### Snack
+
+<https://snack.expo.io/ryYbclcsW>
+
 ### Webstorm
 
 Very cool debugging, very easy to enable.  Pretty lightweight RN project template, lighter than Ignite.
@@ -38,7 +42,22 @@ An [example](http://url.com/ "View")
 
 ### Webstorm
 
-### Atom/Nuclide
+### Atom
+
+<https://atom.io>
+
+Nice:
+
+- Launches from command line.
+
+#### Nuclide
+
+<https://nuclide.io/docs/quick-start/getting-started/#installation>
+
+Installed as a package in Atom.  Settings > Install > type nuclide and search > [Install]
+
+Facebook's "unified development environment"
+
 
 ### Deco
 
