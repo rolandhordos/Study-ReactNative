@@ -6,6 +6,17 @@ This looks very promising, so let's start some study with depth and breadth to t
 
 Well!  Apparently there's nothing like jumping right in.  Expo will certainly ignite a spark and set off a firestorm of enthusiastic study of React Native.  Combined with Snack to effortlessly share and publish training activity over the web.  Simply Amazing!
 
+For structure, I learned gitflow style making feature branches for chunks of work and grouped that into releases.  Here are some highlights:
+
+### 0.0.1
+
+So easy to get up and running.  Amazing tooling even at a simple glance.  Decided to dig in on Nuclide for a spell.
+
+### 0.0.2
+
+
+
+
 ## IDEs and Editors
 
 ### Snack
