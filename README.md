@@ -18,6 +18,13 @@ StyleSheet not actually necessary so far, for an app that displays text and does
 
 Nuclide makes the JSX editing nice -- not sure though if this is just basic Atom at work.
 
+Some elegance lost in the StyleSheet implementation, requiring memorization.  Perhaps I am just lacking some key insight.
+
+- **flex** value range is a percentage, and you need to know it's a range that affects the vertical axis starting with the top of the screen.  Why not name this *verticalRange* or *verticalRangeTop* instead?
+- Almost as random, **justifyContent** applies to the vertical axis.  I have a fantasy that time travel can rename this *verticalAlignment*.
+- **alignItems** - more of the arbitrary, apparently meaning not the same axis as the justified axis yeesh
+
+
 ## Q & A
 
 Q:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
