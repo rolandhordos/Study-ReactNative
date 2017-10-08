@@ -95,21 +95,20 @@ bootstrap - Get this repo going, layout the study plan via an Outline in the Rea
 
 ### Expo
 
-	npm install -g create-react-native-app
-	
+	yarn global add create-react-native-app
+
 ### Otherwise
 
-	npm install -g react-native-cli
-	
+	yarn global add react-native-cli
+
 ### Ignite
 
-	npm install -g ignite-cli
+	yarn global add ignite-cli
 
-### Webstorm 
+### Webstorm
 
 From Webstorm RN Tutorial here: https://blog.jetbrains.com/webstorm/2016/12/developing-mobile-apps-with-react-native-in-webstorm/
 
 Webstorm wants this package installed to create a new project:
 
-	npm install -g create-react-app
-
+	yarn add global create-react-app
