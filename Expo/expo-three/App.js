@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View/>
+      <View><Text>Hello World</Text></View>
     );
   }
 }

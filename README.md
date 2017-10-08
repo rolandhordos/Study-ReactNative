@@ -14,7 +14,7 @@ So easy to get up and running.  Amazing tooling even at a simple glance.  Decide
 
 ### 0.0.2
 
-
+StyleSheet not actually necessary for an app, just a programmer's dream compared to traditional multi-file heavy lifting.
 
 
 ## IDEs and Editors
