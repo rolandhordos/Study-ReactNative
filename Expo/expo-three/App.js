@@ -1,23 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Force press with 2 fingers to open settings</Text>
-      </View>
+      <View style={styling.container}><Text>Hello World</Text></View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const styling = StyleSheet.create({
+    container: {
+      flex: 0.5, /* use only 50% of the screen, vertically from the top */
+      justifyContent: 'center', /* vertical alignment */
+      alignItems: 'center',     /* horizontal alignment */
+    }
 });

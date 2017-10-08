@@ -6,6 +6,29 @@ This looks very promising, so let's start some study with depth and breadth to t
 
 Well!  Apparently there's nothing like jumping right in.  Expo will certainly ignite a spark and set off a firestorm of enthusiastic study of React Native.  Combined with Snack to effortlessly share and publish training activity over the web.  Simply Amazing!
 
+For structure, I learned gitflow style making feature branches for chunks of work and grouped that into releases.  Here are some highlights:
+
+### 0.0.1
+
+So easy to get up and running.  Amazing tooling even at a simple glance.  Decided to dig in on Nuclide for a spell.
+
+### 0.0.2
+
+StyleSheet not actually necessary so far, for an app that displays text and doesn't crash.  Without it though, you cannot layout that text.
+
+Nuclide makes the JSX editing nice -- not sure though if this is just basic Atom at work.
+
+Some elegance lost in the StyleSheet implementation, requiring memorization.  Perhaps I am just lacking some key insight.
+
+- **flex** value range is a percentage, and you need to know it's a range that affects the vertical axis starting with the top of the screen.  Why not name this *verticalRange* or *verticalRangeTop* instead?
+- Almost as random, **justifyContent** applies to the vertical axis.  I have a fantasy that time travel can rename this *verticalAlignment*.
+- **alignItems** - more of the arbitrary, apparently meaning not the same axis as the justified axis yeesh
+
+
+## Q & A
+
+Q:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
+
 ## IDEs and Editors
 
 ### Snack
