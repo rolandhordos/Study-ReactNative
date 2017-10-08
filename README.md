@@ -14,8 +14,13 @@ So easy to get up and running.  Amazing tooling even at a simple glance.  Decide
 
 ### 0.0.2
 
-StyleSheet not actually necessary for an app, just a programmer's dream compared to traditional multi-file heavy lifting.
+StyleSheet not actually necessary so far, for an app that displays text and doesn't crash.  Without it though, you cannot layout that text.
 
+Nuclide makes the JSX editing nice -- not sure though if this is just basic Atom at work.
+
+## Q & A
+
+Q:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
 
 ## IDEs and Editors
 
