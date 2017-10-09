@@ -8,6 +8,13 @@ it('renders without crashing', () => {
   expect(rendered).toBeTruthy();
 });
 
-it('displays a known initial View', () => {
-  expect(true).toBeTruthy()
+// First Snapshot
+it('Displays a known initial View', () => {
+
+  // Render, then diff with the snapshot created last run.
+  const appView = renderer.create(<App/>)
+
+  const appViewStructure = appView.toJSON()
+
+  expect(appViewStructure).toMatchSnapshot()
 })
