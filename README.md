@@ -12,7 +12,7 @@ For structure, I learned gitflow style making feature branches for chunks of wor
 
 So easy to get up and running.  Amazing tooling even at a simple glance.  Decided to dig in on Nuclide for a spell.
 
-### 0.0.2
+### 0.0.2 Hello World
 
 StyleSheet not actually necessary so far, for an app that displays text and doesn't crash.  Without it though, you cannot layout that text.
 
@@ -23,6 +23,18 @@ Some elegance lost in the StyleSheet implementation, requiring memorization.  Pe
 - **flex** value range is a percentage, and you need to know it's a range that affects the vertical axis starting with the top of the screen.  Why not name this *verticalRange* or *verticalRangeTop* instead?
 - Almost as random, **justifyContent** applies to the vertical axis.  I have a fantasy that time travel can rename this *verticalAlignment*.
 - **alignItems** - more of the arbitrary, apparently meaning not the same axis as the justified axis yeesh
+
+## Next Release
+
+### 0.0.3 Jest
+
+The very next bit of complexity has to be a test system.  No, for me it does not matter the size of a project or team this is not optional.
+
+## Roadmap
+
+### 0.0.4 Layout
+
+Colors can wait, layouts are hard.  Let's try something a little more difficult.
 
 
 ## Q & A
