@@ -39,7 +39,15 @@ Colors can wait, layouts are hard.  Let's try something a little more difficult.
 
 ## Q & A
 
-Q:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
+**Q**:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
+
+A try:  Container is simply a convention.  Structure of your style information should be intuitive.  Just be sure to read the correct style values into your JSX.  Apply more structure if you want, you just don't have to.
+
+### Jest
+
+**Q**: How can I verify default component behaviour that doesn't appear in the snapshot, for example flex direction if it's not explicitly set?
+
+
 
 ## IDEs and Editors
 

@@ -8,13 +8,21 @@ it('renders without crashing', () => {
   expect(rendered).toBeTruthy();
 });
 
-// First Snapshot
-it('Displays a known initial View', () => {
-
-  // Render, then diff with the snapshot created last run.
+describe('Launch Screen', () => {
   const appView = renderer.create(<App/>)
 
-  const appViewStructure = appView.toJSON()
+  describe('Layout', () => {
 
-  expect(appViewStructure).toMatchSnapshot()
+    const appViewStructure = appView.toJSON()
+    expect(appViewStructure.type).toBe('View')
+
+    it('Displays a known initial View', () => {
+      expect(appViewStructure).toMatchSnapshot()
+    })
+
+    it('uses only the top half of the screen', () => {
+      // console.log(appViewStructure)
+      expect(appViewStructure.props.style.flex).toBe(0.5)
+    })
+  })
 })
