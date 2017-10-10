@@ -30,6 +30,10 @@ Some elegance lost in the StyleSheet implementation, requiring memorization.  Pe
 
 The very next bit of complexity has to be a test system.  No, for me it does not matter the size of a project or team this is not optional.
 
+Just a wonderful experience.  Get going testing your Expo app immediately / out of the box.
+
+Webstorm's Jest configuration found me debugging tests with a couple clicks.  Still not familiar with Nuclide as a debugger yet.
+
 ## Roadmap
 
 ### 0.0.4 Layout

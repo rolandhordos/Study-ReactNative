@@ -10,15 +10,15 @@ it('renders without crashing', () => {
 
 describe('Launch Screen', () => {
   const appView = renderer.create(<App/>)
+  const appViewStructure = appView.toJSON()
+
+  it('Displays a known initial View', () => {
+    expect(appViewStructure).toMatchSnapshot()
+  })
 
   describe('Layout', () => {
 
-    const appViewStructure = appView.toJSON()
     expect(appViewStructure.type).toBe('View')
-
-    it('Displays a known initial View', () => {
-      expect(appViewStructure).toMatchSnapshot()
-    })
 
     it('uses only the top half of the screen', () => {
       // console.log(appViewStructure)

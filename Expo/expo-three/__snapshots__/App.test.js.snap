@@ -1,27 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Displays a known initial View 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "flex": 0.5,
-      "justifyContent": "center",
-    }
-  }
->
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
-  >
-    Hello World
-  </Text>
-</View>
-`;
-
-exports[`Launch Screen Layout Displays a known initial View 1`] = `
+exports[`Launch Screen Displays a known initial View 1`] = `
 <View
   style={
     Object {
