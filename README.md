@@ -12,7 +12,7 @@ For structure, I learned gitflow style making feature branches for chunks of wor
 
 So easy to get up and running.  Amazing tooling even at a simple glance.  Decided to dig in on Nuclide for a spell.
 
-### 0.0.2
+### 0.0.2 Hello World
 
 StyleSheet not actually necessary so far, for an app that displays text and doesn't crash.  Without it though, you cannot layout that text.
 
@@ -24,10 +24,34 @@ Some elegance lost in the StyleSheet implementation, requiring memorization.  Pe
 - Almost as random, **justifyContent** applies to the vertical axis.  I have a fantasy that time travel can rename this *verticalAlignment*.
 - **alignItems** - more of the arbitrary, apparently meaning not the same axis as the justified axis yeesh
 
+## Next Release
+
+### 0.0.3 Jest
+
+The very next bit of complexity has to be a test system.  No, for me it does not matter the size of a project or team this is not optional.
+
+Just a wonderful experience.  Get going testing your Expo app immediately / out of the box.
+
+Webstorm's Jest configuration found me debugging tests with a couple clicks.  Still not familiar with Nuclide as a debugger yet.
+
+## Roadmap
+
+### 0.0.4 Layout
+
+Colors can wait, layouts are hard.  Let's try something a little more difficult.
+
 
 ## Q & A
 
-Q:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
+**Q**:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
+
+A try:  Container is simply a convention.  Structure of your style information should be intuitive.  Just be sure to read the correct style values into your JSX.  Apply more structure if you want, you just don't have to.
+
+### Jest
+
+**Q**: How can I verify default component behaviour that doesn't appear in the snapshot, for example flex direction if it's not explicitly set?
+
+
 
 ## IDEs and Editors
 
