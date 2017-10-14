@@ -25,5 +25,18 @@ describe('Launch Screen', () => {
       expect(appViewStructure.props.style.flexDirection).toBe('column')
       expect(appViewStructure.props.style.flex).toBe(0.5)
     })
+
+    describe('Text component', () => {
+      const textComponent = appViewStructure.children.find(entry => entry.type === "Text")
+      expect(textComponent).toBeDefined()
+      expect(textComponent.type).toBe('Text')
+
+      it('which says Hello World', () => {
+        const text = textComponent.children[0]
+        expect(text).toBe('Hello World')
+      })
+    })
+  })
+
   })
 })

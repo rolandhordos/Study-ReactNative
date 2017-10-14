@@ -42,6 +42,16 @@ Colors can wait, layouts for mobile are hard.  Let's try something a little more
 
 Key to FlexBox seems to be always knowing it's forward direction.  Decided to always set this, making the important flex direction declarative.  Concise works where syntax is intuitive.
 
+Started using a nice test runner for Jest integration with Atom.  Though still no debugger integration working here yet.
+
+<https://atom.io/packages/tester-jest>
+
+#### Updating Tests
+
+Changed a layout?
+
+- Add or update tests
+- Update the incremental change in the snapshot -- code reviewing this diff should be easy or something larger changed
 
 ## Q & A
 
@@ -66,6 +76,10 @@ A try:  Container is simply a convention.  Structure of your style information s
 Very cool debugging, very easy to enable.  Pretty lightweight RN project template, lighter than Ignite.
 
 Webstorm hides some files in the /var/private..tmp are.  Not sure how these are maintained yet.  Nice that it is aware that you can have a ton of files getting in the way and accomodate that both visually and on the file system.
+
+### Atom
+
+Loving the "Hackable" nature of this nice light IDE.  Have customized the look and feel right down to specific syntax choices.  Will shared these ~/.atom/*.less changes down the road.
 
 ## Handy References
 
