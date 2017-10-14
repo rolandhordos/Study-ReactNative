@@ -22,6 +22,7 @@ describe('Launch Screen', () => {
 
     it('uses only the top half of the screen', () => {
       // console.log(appViewStructure)
+      expect(appViewStructure.props.style.flexDirection).toBe('column')
       expect(appViewStructure.props.style.flex).toBe(0.5)
     })
   })

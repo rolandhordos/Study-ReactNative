@@ -6,6 +6,7 @@ exports[`Launch Screen Displays a known initial View 1`] = `
     Object {
       "alignItems": "center",
       "flex": 0.5,
+      "flexDirection": "column",
       "justifyContent": "center",
     }
   }

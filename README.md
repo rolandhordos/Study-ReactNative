@@ -38,7 +38,9 @@ Webstorm's Jest configuration found me debugging tests with a couple clicks.  St
 
 ### 0.0.4 Layout
 
-Colors can wait, layouts are hard.  Let's try something a little more difficult.
+Colors can wait, layouts for mobile are hard.  Let's try something a little more difficult, leading with Test.
+
+Key to FlexBox seems to be always knowing it's forward direction.  Decided to always set this, making the important flex direction declarative.  Concise works where syntax is intuitive.
 
 
 ## Q & A

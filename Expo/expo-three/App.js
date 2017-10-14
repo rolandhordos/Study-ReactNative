@@ -11,8 +11,9 @@ export default class App extends React.Component {
 
 const styling = StyleSheet.create({
     container: {
-      flex: 0.5, /* use only 50% of the screen, vertically from the top */
-      justifyContent: 'center', /* vertical alignment */
-      alignItems: 'center',     /* horizontal alignment */
+      flexDirection: 'column',  // layout vertically from the top
+      flex: 0.5,                // use only 50% of the screen
+      justifyContent: 'center', // vertical alignment
+      alignItems: 'center',     // horizontal alignment
     }
 });
