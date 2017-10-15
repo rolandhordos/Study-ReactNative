@@ -38,14 +38,37 @@ Webstorm's Jest configuration found me debugging tests with a couple clicks.  St
 
 ### 0.0.4 Layout
 
-Colors can wait, layouts are hard.  Let's try something a little more difficult.
+Colors can wait, layouts for mobile are hard.  Let's try something a little more difficult, leading with Test.
 
+Key to FlexBox seems to be always knowing it's forward direction.  Decided to always set this, making the important flex direction declarative.  Concise works where syntax is intuitive.
 
+Started using a nice test runner for Jest integration with Atom.  Though still no debugger integration working here yet.
+
+<https://atom.io/packages/tester-jest>
+
+#### Updating Tests
+
+Changed a layout?
+
+- Add or update tests
+- Update the incremental change in the snapshot -- code reviewing this diff should be easy or something larger changed
+
+#### ScrollView Structure
+
+More elegance found!  Found out via test and inspection in the debugger, that the runtime View hierarchy depending on the Component does not match the JSX 1 to 1.  The ScrollView has a hidden inner View as the parent of your JSX based Component contents within.
+
+I think this is a good thing, you build with concise clean normalized structure.  You need to know more for testing but it's straight-forward.
 ## Q & A
 
 **Q**:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
 
-A try:  Container is simply a convention.  Structure of your style information should be intuitive.  Just be sure to read the correct style values into your JSX.  Apply more structure if you want, you just don't have to.
+**A**:  Container is simply a convention.  Structure of your style information should be intuitive.  Just be sure to read the correct style values into your JSX.  Apply more structure if you want, you just don't have to.
+
+**Q**:  What do flexGrow, flexShrink, and flexBasis do for me?
+
+A try:  <https://stackoverflow.com/questions/43143258/flex-vs-flexgrow-vs-flexshrink-vs-flexbasis-in-react-native>
+
+TODO: experimentation required here, outside of a scrolling environment where autolayout in constrained real-estate conditions can be observed.
 
 ### Jest
 
@@ -64,6 +87,10 @@ A try:  Container is simply a convention.  Structure of your style information s
 Very cool debugging, very easy to enable.  Pretty lightweight RN project template, lighter than Ignite.
 
 Webstorm hides some files in the /var/private..tmp are.  Not sure how these are maintained yet.  Nice that it is aware that you can have a ton of files getting in the way and accomodate that both visually and on the file system.
+
+### Atom
+
+Loving the "Hackable" nature of this nice light IDE.  Have customized the look and feel right down to specific syntax choices.  Will shared these ~/.atom/*.less changes down the road.
 
 ## Handy References
 

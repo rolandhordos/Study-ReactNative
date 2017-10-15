@@ -4,19 +4,95 @@ exports[`Launch Screen Displays a known initial View 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "flex": 0.5,
-      "justifyContent": "center",
+      "flex": 1,
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "whitesmoke",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
   >
-    Hello World
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    >
+      Hello World
+    </Text>
+  </View>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
 </View>
 `;
