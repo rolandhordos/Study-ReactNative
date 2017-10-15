@@ -62,7 +62,13 @@ I think this is a good thing, you build with concise clean normalized structure.
 
 **Q**:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
 
-A try:  Container is simply a convention.  Structure of your style information should be intuitive.  Just be sure to read the correct style values into your JSX.  Apply more structure if you want, you just don't have to.
+**A**:  Container is simply a convention.  Structure of your style information should be intuitive.  Just be sure to read the correct style values into your JSX.  Apply more structure if you want, you just don't have to.
+
+**Q**:  What do flexGrow, flexShrink, and flexBasis do for me?
+
+A try:  <https://stackoverflow.com/questions/43143258/flex-vs-flexgrow-vs-flexshrink-vs-flexbasis-in-react-native>
+
+TODO: experimentation required here, outside of a scrolling environment where autolayout in constrained real-estate conditions can be observed.
 
 ### Jest
 
