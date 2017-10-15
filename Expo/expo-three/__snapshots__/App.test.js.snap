@@ -4,20 +4,39 @@ exports[`Launch Screen Displays a known initial View 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "flex": 0.5,
-      "flexDirection": "column",
-      "justifyContent": "center",
+      "flex": 1,
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    disabled={false}
-    ellipsizeMode="tail"
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "whitesmoke",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
   >
-    Hello World
-  </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+    >
+      Hello World
+    </Text>
+  </View>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View />
+  </RCTScrollView>
 </View>
 `;
