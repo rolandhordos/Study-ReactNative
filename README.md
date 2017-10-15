@@ -55,7 +55,9 @@ Changed a layout?
 
 #### ScrollView Structure
 
-More elegance found!  Found out via test and inspection in the debugger, that the runtime View hierarchy depending on the Component does not match the JSX 1 to 1.  The ScrollView has a hidden inner View as the parent of your JSX based Component contents within.  I think this is a good thing, you build with concise clean normalized structure.  You need to know more for testing but this it's straight-forward.
+More elegance found!  Found out via test and inspection in the debugger, that the runtime View hierarchy depending on the Component does not match the JSX 1 to 1.  The ScrollView has a hidden inner View as the parent of your JSX based Component contents within.
+
+I think this is a good thing, you build with concise clean normalized structure.  You need to know more for testing but it's straight-forward.
 ## Q & A
 
 **Q**:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?

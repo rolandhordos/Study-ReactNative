@@ -37,11 +37,61 @@ exports[`Launch Screen Displays a known initial View 1`] = `
     }
   >
     <View>
-      <View />
-      <View />
-      <View />
-      <View />
-      <View />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "orange",
+            "borderRadius": 8,
+            "height": 110,
+            "margin": 12,
+            "width": "30%",
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
