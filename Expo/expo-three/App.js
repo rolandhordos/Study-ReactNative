@@ -9,6 +9,11 @@ export default class App extends React.Component {
           <Text>Hello World</Text>
         </View>
         <ScrollView style={styles.bottomHalfContainer}>
+          <View/>
+          <View/>
+          <View/>
+          <View/>
+          <View/>
         </ScrollView>
       </View>
     );

@@ -36,7 +36,13 @@ exports[`Launch Screen Displays a known initial View 1`] = `
       }
     }
   >
-    <View />
+    <View>
+      <View />
+      <View />
+      <View />
+      <View />
+      <View />
+    </View>
   </RCTScrollView>
 </View>
 `;

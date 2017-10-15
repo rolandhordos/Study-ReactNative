@@ -57,6 +57,18 @@ describe('Launch Screen', () => {
             expect(bottomHalf.props.style.flexDirection).toBe('column')
             expect(bottomHalf.props.style.flex).toBe(1.0)
         })
+
+        // ScrollView has an additional hidden "View" that does not appear in the JSX
+        const scrollViewInnerContainer = bottomHalf.children[0]
+        it('has a hidden container in the view hierarchy, before contained child views', () => {
+          expect(scrollViewInnerContainer).toBeDefined()
+          expect(scrollViewInnerContainer.type).toBe('View')
+        })
+
+        it('has five boxes arranged vertically within the scrolling area', () => {
+          const boxes = scrollViewInnerContainer.children
+          expect(boxes.length).toBe(5)
+        })
       })
     })
   })
