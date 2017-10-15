@@ -24,7 +24,6 @@ Some elegance lost in the StyleSheet implementation, requiring memorization.  Pe
 - Almost as random, **justifyContent** applies to the vertical axis.  I have a fantasy that time travel can rename this *verticalAlignment*.
 - **alignItems** - more of the arbitrary, apparently meaning not the same axis as the justified axis yeesh
 
-## Next Release
 
 ### 0.0.3 Jest
 
@@ -34,7 +33,6 @@ Just a wonderful experience.  Get going testing your Expo app immediately / out 
 
 Webstorm's Jest configuration found me debugging tests with a couple clicks.  Still not familiar with Nuclide as a debugger yet.
 
-## Roadmap
 
 ### 0.0.4 Layout
 
@@ -58,6 +56,20 @@ Changed a layout?
 More elegance found!  Found out via test and inspection in the debugger, that the runtime View hierarchy depending on the Component does not match the JSX 1 to 1.  The ScrollView has a hidden inner View as the parent of your JSX based Component contents within.
 
 I think this is a good thing, you build with concise clean normalized structure.  You need to know more for testing but it's straight-forward.
+
+
+## Next Release
+
+### 0.1.0 Ejected
+
+Deciding we want to study beyond Expo, we move forward into the iOS simulator and <em>eject</em> from Expo.  Ideally we can keep our light, fast Expo rhythm as well.
+
+## Roadmap
+
+### 0.1.1 BuddyBuild
+
+By this point a production CI system should be able to pick up distribution for devices.  We'll make a green Jest Project test a requirement for pushing a build.
+
 ## Q & A
 
 **Q**:  What is the significance of the "container" in the StyleSheet?  Can you have multiple containers at the same time?
