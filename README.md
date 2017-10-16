@@ -4,7 +4,7 @@ This looks very promising, so let's start some study with depth and breadth to t
 
 ## Getting Started
 
-Well!  Apparently there's nothing like jumping right in.  Expo will certainly ignite a spark and set off a firestorm of enthusiastic study of React Native.  Combined with Snack to effortlessly share and publish training activity over the web.  Simply Amazing!
+Well!  Apparently there's nothing like jumping right in.  Expo set off a firestorm of enthusiastic study of React Native.  Combined with Snack to effortlessly share and publish training activity over the web.  Simply Amazing!
 
 For structure, I learned gitflow style making feature branches for chunks of work and grouped that into releases.  Here are some highlights:
 
@@ -58,8 +58,6 @@ More elegance found!  Found out via test and inspection in the debugger, that th
 I think this is a good thing, you build with concise clean normalized structure.  You need to know more for testing but it's straight-forward.
 
 
-## Next Release
-
 ### 0.1.0 Ejected
 
 Deciding we want to study beyond Expo, we move forward into the iOS simulator and <em>eject</em> from Expo.  Ideally we can keep our light, fast Expo rhythm as well.
@@ -91,11 +89,15 @@ The idea here is something better than prototyping, using multiple smaller Expo 
 
 This is not an automated means provided by Expo, but the manual work is manageable.  It's just so amazingly fast and easy to create an Expo app and get busy, that I think I will try to use it like a "git flow feature" type of thing.  Along with your feature branch you might have a standalone Expo app that proves out your newly added code in a lightweight but focused way.  To be continued.
 
-## Roadmap
+## Next Release
 
 ### 0.1.1 BuddyBuild
 
-By this point a production CI system should be able to pick up distribution for devices.  We'll make a green Jest Project test a requirement for pushing a build.
+By this point a production CI system should be able to pick up distribution for devices.  We'll make a green Jest Project test a 
+requirement for pushing a build.
+
+## Roadmap
+
 
 ## Q & A
 
