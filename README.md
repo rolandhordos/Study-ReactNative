@@ -64,6 +64,33 @@ I think this is a good thing, you build with concise clean normalized structure.
 
 Deciding we want to study beyond Expo, we move forward into the iOS simulator and <em>eject</em> from Expo.  Ideally we can keep our light, fast Expo rhythm as well.
 
+#### Option 1 - No More Expo
+
+This went pretty well.  The iOS app built and ran first shot.
+
+Jest was broken but a small change to the package.json file to change the "jest.preset" from "jest-expo" to "react-native".  The Atom jest package worked the same, as did "yarn test".
+
+Sorely missing was the auto reloading in the iOS App.  I stared at the simulator for a bit, hoping it would do something about my recent changes.  It just stared back.  
+
+But the work cycle is still not so bad here.  Making a small change required only about 15 seconds from "yarn run ios" to having the app refreshed in the simulator.
+
+#### Option 2 - Keep Expo Support
+
+Initial attempt to run-ios was not successful.  Build errors very recognizable as CocoaPods having not been run.
+
+	cd ios
+	pod install
+	
+First major setback for Expo - 345 MB of pod source later (see ejected-with-everything-but-the-kitchen-sink.txt) and we're ready to build again.  It's not just a large amount of code here, there are absurd dependencies like "boost" which are 75M alone and are typically used when Apple's APIs are bypassed for a maximally heavyweight mobile application, plus security concerns.  This is the exact opposite of the amazingly wonderful light, clean, and powerful Expo experience thus far.
+
+Second major setback.  Xcode 9 GA cannot compile the pods provided by Eject option 2 with ExpoKit.  Heavy integration work ahead to get Hello World back online.  We're done.  See Options 1 or 3.
+
+#### Option 3 - Hybrid Expo for Modular Development
+
+The idea here is something better than prototyping, using multiple smaller Expo projects that focus on a specific aspect of your application.  Perhaps segmented like you would see the major features separated with a Tab View based launch screen.  But the main production application is a conventional React Native app.
+
+This is not an automated means provided by Expo, but the manual work is manageable.  It's just so amazingly fast and easy to create an Expo app and get busy, that I think I will try to use it like a "git flow feature" type of thing.  Along with your feature branch you might have a standalone Expo app that proves out your newly added code in a lightweight but focused way.  To be continued.
+
 ## Roadmap
 
 ### 0.1.1 BuddyBuild
