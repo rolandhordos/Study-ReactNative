@@ -4,7 +4,7 @@ This looks very promising, so let's start some study with depth and breadth to t
 
 ## Getting Started
 
-Well!  Apparently there's nothing like jumping right in.  Expo set off a firestorm of enthusiastic study of React Native.  Combined with Snack to effortlessly share and publish training activity over the web.  Simply Amazing!
+Well!  There's nothing like jumping right in.  Expo set off a firestorm of enthusiastic study of React Native.  Combined with Snack will effortlessly share and publish training activity over the web.  Simply Amazing!
 
 For structure, I learned gitflow style making feature branches for chunks of work and grouped that into releases.  Here are some highlights:
 
@@ -89,15 +89,31 @@ The idea here is something better than prototyping, using multiple smaller Expo 
 
 This is not an automated means provided by Expo, but the manual work is manageable.  It's just so amazingly fast and easy to create an Expo app and get busy, that I think I will try to use it like a "git flow feature" type of thing.  Along with your feature branch you might have a standalone Expo app that proves out your newly added code in a lightweight but focused way.  To be continued.
 
-## Next Release
-
 ### 0.1.1 BuddyBuild
 
-By this point a production CI system should be able to pick up distribution for devices.  We'll make a green Jest Project test a 
-requirement for pushing a build.
+By this point a production CI system should be able to pick up distribution for devices.  We'll make a green Jest Project test a requirement for pushing a build.
+
+Success!  It took 2 lines in a buddybuild_prebuild.sh script to make this work.  It didn't work the same in the postclone (sp) script - node is not yet prepared in the BB run.  As prebuild it still shows high in the build log, errors are read just like day to day jest watch in the Terminal, and no heavy Xcode build required.
+
+Here's the repo: <https://github.com/rolandhordos/ExpoThree-Ejected>
+
+## Next Release
+
+### 0.1.2 List / Table
+
 
 ## Roadmap
 
+### State and Workflow
+
+### With Swift
+
+### Android
+
+###  Buck ?
+
+	brew tap facebook/fb
+	brew install buck
 
 ## Q & A
 

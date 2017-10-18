@@ -31,3 +31,10 @@ Key to FlexBox seems to be always knowing it's forward direction.  Decided to al
 Moving on from Expo, not because we didn't like it but precisely because it was awesome.  Needed to know how locked-in Expo was, especially with differing App Store strategies.
 
 Ample detail in the README of experience gained, finding a sensible path forward combining use of Expo in a "git flow feature" style of work (Option 3).
+
+### 0.1.1 BuddyBuild
+
+Build the Ejected app on a production CI system for distribution to devices.  Jest tests must pass before the app is built.  Light and fast.  2 lines in a prebuild script !  (though it took 25 builds to figure it out)
+
+#### Bundle ID
+TODO: The bundle ID should be changed to your own namespace, from the default "org.reactjs.native.example".
