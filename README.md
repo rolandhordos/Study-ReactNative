@@ -89,8 +89,6 @@ The idea here is something better than prototyping, using multiple smaller Expo 
 
 This is not an automated means provided by Expo, but the manual work is manageable.  It's just so amazingly fast and easy to create an Expo app and get busy, that I think I will try to use it like a "git flow feature" type of thing.  Along with your feature branch you might have a standalone Expo app that proves out your newly added code in a lightweight but focused way.  To be continued.
 
-## Next Release
-
 ### 0.1.1 BuddyBuild
 
 By this point a production CI system should be able to pick up distribution for devices.  We'll make a green Jest Project test a requirement for pushing a build.
@@ -99,9 +97,12 @@ Success!  It took 2 lines in a buddybuild_prebuild.sh script to make this work. 
 
 Here's the repo: <https://github.com/rolandhordos/ExpoThree-Ejected>
 
-## Roadmap
+## Next Release
 
-### List / Table
+### 0.1.2 List / Table
+
+
+## Roadmap
 
 ### State and Workflow
 
