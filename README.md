@@ -99,12 +99,21 @@ Here's the repo: <https://github.com/rolandhordos/ExpoThree-Ejected>
 
 ## Next Release
 
-### 0.1.2 List / Table
+### 0.2.0 Third Party Components
 
+This is a very important aspect of a successful software technology, that supports a grassroots movement to enrich the standard component library.  Here is hoping we can use 3rd party components just as easily as we have so far.
 
 ## Roadmap
 
-### State and Workflow
+### State
+
+- Redux
+
+### Workflow
+
+### Component Lifecycle
+
+### Realm
 
 ### With Swift
 
