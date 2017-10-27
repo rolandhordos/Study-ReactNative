@@ -99,12 +99,49 @@ Here's the repo: <https://github.com/rolandhordos/ExpoThree-Ejected>
 
 ## Next Release
 
-### 0.1.2 List / Table
+### 0.2.0 Third Party Components
 
+This is a very important aspect of a successful software technology, that supports a grassroots movement to enrich the standard component library.  Here is hoping we can use 3rd party components just as easily as we have so far.
+
+#### Jumping In
+
+The hunt for a great carousel.  Chosen not quite arbitrarily, I decided to go through a component selection process just like I would with CocoaPods for a given problem.  Here are my findings, as well as a spontaneous decision to fork a component and contribute to opensource!
+
+1)  Quality of 3rd party React Native components is *extremely* varied, similar to what I'm used to on iOS with CocoaPods but it seems much harder to find that out quickly.  Another win for @Orta :)
+
+2)  Setback for Expo, [snap carousel](https://yarnpkg.com/en/package/react-native-snap-carousel) heated up my iPhone 7+ faster than a 3D game.  Then rendering anomalies were encountered with [react-native-carousel](https://yarnpkg.com/en/package/react-native-carousel) that were not found on the Simulator outside of Expo.  Perhaps this is due to imperfectly matched dependencies, and if so then add brittle as another minus.  Expo appears great for simple projects and for getting relatively simple things working easily.
+
+3)  Very very very few components are implemented using the portrayed modern idiomatic JavaScript I've fallen in love with in the 2017 RN tutorials.  Old approaches involving Mixins and callback hell (missing caller / callee context, great difficulty for non-trivial testing).  See Opportunity.
+
+4)  Minimal to no testing.  See Opportunity.
+
+5)  Jest testing with Components can throw exceptions like ScrollViewMock not supporting the scrollTo method.  Deep dive on Jest here looks to be required incuding Timer Mocking.
+
+#### Opportunity !
+
+Not realizing it was Expo, I set my sights on the shortcomings in react-native-carousel as a chance to fork it and:
+
+- fix the 2 or 3 bugs found
+- upgrade it to ES6/7 code like in the 2017 tutorials
+- resolve React 16 deprecations
+- learn how to publish a component
+- contribute to opensource
+
+#### Opportunity Realized
+
+And so we ended up with [a fork](https://github.com/rolandhordos/react-native-carousel) and [a component](https://yarnpkg.com/en/package/@rolandhordos/react-native-carousel) with lots of commit detail to follow the journey.
 
 ## Roadmap
 
-### State and Workflow
+### State
+
+- Redux
+
+### Workflow
+
+### Component Lifecycle
+
+### Realm
 
 ### With Swift
 
