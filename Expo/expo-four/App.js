@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, AppRegistry } from 'react-native'
 import Carousel from '@rolandhordos/react-native-carousel'
 
-export default class App extends Component {
+export default class RNCarousel extends Component {
 
   render() {
-    return(
-      <Carousel width={styles.slide.width} animate={false}>
-        <View style={styles.slide}>
-          <Text>Item 1</Text>
+    return (
+      <Carousel width={styles.container.width} animate={false}>
+        <View style={styles.container}>
+          <Text>Page 1</Text>
         </View>
-        <View style={styles.slide}>
-          <Text>Item 2</Text>
+        <View style={styles.container}>
+          <Text>Page 2</Text>
         </View>
-        <View style={styles.slide}>
-          <Text>Item 3</Text>
+        <View style={styles.container}>
+          <Text>Page 3</Text>
         </View>
       </Carousel>
     )
@@ -22,11 +22,11 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  slide: {
+  container: {
+    width: 375,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 375,
-    backgroundColor: '#00CED1', // Dark Turquoise
+    backgroundColor: 'transparent',
   }
 })
