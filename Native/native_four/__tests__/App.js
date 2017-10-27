@@ -1,9 +1,18 @@
-import 'react-native';
 import React from 'react';
 import App from '../App';
-
-// Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+
+describe('Carousel', () => {
+
+  it('renders a simple configuration', () => {
+    const carousel = renderer.create(<App/>)
+    expect(carousel).toBeDefined()
+
+    const structure = carousel.toJSON()
+    expect(structure).toBeDefined()
+  })
+})
+
 
 it('renders without throwing', () => {
   const tree = renderer.create(
