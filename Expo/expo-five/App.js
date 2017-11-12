@@ -10,10 +10,17 @@ export default class App extends Component {
     count: 0,
   }
 
+  componentDidMount() { // lifecycle - called once before initial render
+    // We need a timer to advance the counter at a given rate
+    setInterval(() => {          // bound function acting on this instance
+      this.setState({ count: this.state.count + 1 })
+    }, 1000)
+  }
+
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.counter}>(count)</Text>
+        <Text style={styles.counter}>{this.state.count}</Text>
       </View>
     )
   }
