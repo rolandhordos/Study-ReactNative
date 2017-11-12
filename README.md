@@ -141,6 +141,24 @@ Expo-Five - simple state change over time, testable with Timer Mocking to simula
 
 0.2.2 Component Testing
 
+### Flow
+
+Not sure which of these finally smoothed out the Jest globals issue:
+
+	yarn global add flow-typed
+	flow-typed install jest@21.2.1
+	flow-typed create-stub react-native@0.49.5
+
+Also need to add quite a bit to the [ignore] section of .flowconfig:
+
+	; rh - modules not configured correctly for current flow env
+	<PROJECT_ROOT>/node_modules/react-native/local-cli
+	<PROJECT_ROOT>/node_modules/react-native/lib
+	<PROJECT_ROOT>/node_modules/react-native/Libraries
+	<PROJECT_ROOT>/node_modules/react-native-gesture-handler
+	<PROJECT_ROOT>/node_modules/react-native/ReactAndroid
+
+
 ### Prop Types
 
 ### State
