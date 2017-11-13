@@ -97,6 +97,7 @@ Success!  It took 2 lines in a buddybuild_prebuild.sh script to make this work. 
 
 Here's the repo: <https://github.com/rolandhordos/ExpoThree-Ejected>
 
+
 ### 0.2.0 Third Party Components
 
 This is a very important aspect of a successful software technology, that supports a grassroots movement to enrich the standard component library.  Here is hoping we can use 3rd party components just as easily as we have so far.
@@ -129,13 +130,38 @@ Not realizing it was Expo, I set my sights on the shortcomings in react-native-c
 
 And so we ended up with [a fork](https://github.com/rolandhordos/react-native-carousel) and [a component](https://yarnpkg.com/en/package/@rolandhordos/react-native-carousel) with lots of commit detail to follow the journey.
 
+
+### 0.2.1 Deeper Jest - Timers
+
+Expo-Five - simple state change over time, testable with Timer Mocking to simulate time.
+
 ## Next Release
 
-0.2.1 Deeper Jest
+0.2.2 Component Testing
 
 ## Roadmap
 
-0.2.2 Component Testing
+Architecture for maximum reuse across Web and Native.
+
+### Flow
+
+Not sure which of these finally smoothed out the Jest globals issue:
+
+	yarn global add flow-typed
+	flow-typed install jest@21.2.1
+	flow-typed create-stub react-native@0.49.5
+
+Also need to add quite a bit to the [ignore] section of .flowconfig:
+
+	; rh - modules not configured correctly for current flow env
+	<PROJECT_ROOT>/node_modules/react-native/local-cli
+	<PROJECT_ROOT>/node_modules/react-native/lib
+	<PROJECT_ROOT>/node_modules/react-native/Libraries
+	<PROJECT_ROOT>/node_modules/react-native-gesture-handler
+	<PROJECT_ROOT>/node_modules/react-native/ReactAndroid
+
+
+### Prop Types
 
 ### State
 
@@ -170,7 +196,97 @@ TODO: experimentation required here, outside of a scrolling environment where au
 
 ### Jest
 
+Validate method execution and state present within call.
+
+Sequenced return values - immediately jump to set of state at the start of a test.
+
+Favorite quote in the documentation: 
+> "try to avoid the temptation to implement logic inside of any function that's not directly being tested"
+
 **Q**: How can I verify default component behaviour that doesn't appear in the snapshot, for example flex direction if it's not explicitly set?
+
+#### Mocking Time
+
+Deep insight into runtime behavior.
+
+##### jest.useFakeTimers()
+
+Timey wimey tardis magic !  You can drive time thousands of times faster than real time (infinite loop detection kicks in at 100000 events).  Time jump to just the next event or fire up the Blink drive and *jest.runTimersToTime* jump to a specific point in time.
+
+Combined with Jest's normal function mocking which looks and works beautifully in ES6+ syntax and tracks state seen within the call.  ES7 bound instance methods work seamlessly this way as well -- easy to prove in the mock.calls state.
+
+Note: manually clear state at the end of a timer mock test with *jest.clearAllMocks*, otherwise other tests within the same suite can add to the state.  I was mistaken that Jest already did this on it's own between tests.  Incredible that this can be caught, let alone surfaced for you in mentorship fashion.  It's so easy to miss that the runtime can stack up calls to *setInterval* in an managed runtime.  In other platforms this dynamic - unexpected runtime / container residue can cumulatively cost weeks.  First hand, this found a recent iOS team I lead abandoning TeamCity for iOS CI purposes, never knowing why the Swift/ObjC testing was so unreliable compared to Xcode Server (identical tests).
+
+Still not done.  Now .. **snapshot this exposed state** as well.  I did not know previous to this that the same snapshot mechanism for the React view hierarchy can be used as:
+
+	expect(yourMock).toMatchSnapshot
+
+.. then automatically matched every single time you run.  This will catch unexpected state creep and race conditions *FOR YOU* with one line of code.
+
+
+### Component Development
+
+#### Using Components in Source Form - project+components
+
+How amazing would it be, if your RN application itself could make use of the React component architecture.  Individually each component could be published for maximum reuse.  Ideally you could run Jest and your App in your project root like you always do, but concurrently you could develop independent components also running at least Jest.
+
+##### Best Option So Far - libsync
+
+Coined *libsync* for a simple rsync of prepared component package lib contents into an installed package version.  It works to hot reload component changes into the project.  It does not allow us to debug ES6/7 based component source.  
+
+To use this technique, add this to the yarn scripts section:
+
+	"libsync":  "npx babel src/ -d lib/ --presets=react-native; rsync -rav lib/ libsync"
+
+You will need to symlink the lib directory of an installed version of the package in the project that is using it.
+
+	ln -s ~/MyProject/node_modules/@me/my-component/lib libsync
+
+Yes, this is a hack.  However it seems to be the best hack available.  Many problems were encountered trying to use the node module architecture to accomplish project+component development.
+
+##### Problems Using Node modules as Developing Components
+
+- Packages are typically published in a minified form, probably in a different folder such as *lib* where the *src* is elsewhere.  The Component Shim approach below which patches the package.json got close but would only work with Jest.
+- *Yarn add* as a local package gives the ability to update changes from the local file system without publishing, though would require at least pre packaging of the minified form as use of the component's own ES6/7 source through symlinking or package.json patching would not work.  Possibly some additional Babel configuration here might help.
+- For performance each sub-system has it's own caching or optimization that get in the way of creative module usage.  NPM, Jest, RN Packager, Expo ..
+- Initializing Jest again in a subdirectory of a project where you mean to run it regularly, causes the "Cannot find module 'setupDevtools' from 'setup.js'" error.
+- Dependent modules in subfolders that have a node_modules within them (ex: react and react-native) will cause an arbitrary dependency resolution problem and error out, pointing to the duplicate dependencies.
+
+
+##### Component Shim to yarn add /filesystem/package
+
+Assuming the package you're developing becomes packaged to a "lib" directory and have development dependencies that clash with the project that's *using* the component, you'll want this **shim** which you can add to the *"scripts"* section and execute as:
+
+	yarn component-shim
+	
+Add this to package.json scripts section: 
+
+	"component-shim": "yarn add /Users/rolandhordos/Projects/Study/Node/react-native-carousel; cd node_modules/@rolandhordos/react-native-carousel/; rm -fr node_modules/react-native; rm -fr node_modules/react; rm -fr lib; rm -fr src; ln -s /Users/rolandhordos/Projects/Study/Node/react-native-carousel/src; sed -i.bak 's/lib\\/C/src\\/C/g' package.json"
+
+Note that double backslashes were necessary in the JSON in place of single backslashes if you were executing this in sed on the command line.
+
+
+##### Add Component Source as SubModule
+
+Submodules might have been a straightforward fallback when packaging breaks down, like in other dev envs.  However:
+
+- The source needs to be within the project tree -- in it's sandbox.  Symlinking out to some arbitrary structure always caused some sort of packager, Jest, or Babel originating dependency resolution problem.
+- yarn install in a subdirectory of a yarn based project will result in a laundry list of resolution and dependency issues.
+
+The part of this that works, is to directly include the source, make source changes and add to your project testing, then contribute back source changes from the submodule to the component repo.  Then pull / merge changes in as well.  Far from parallel Jest based development.
+
+
+##### Custom Component Architecture - Not Quite There Yet
+
+It's easy to drink the Component Kool-aid and fall in love with a component inspired architecture.  As of Novenber 2017, it's still really hard to make work well, the way the trivial examples just pop.
+
+**Tweak #1 - Jest - Ignoring Duplicate Module Paths**:  When you're including a component you're developing, into another project, add those module paths to the jest section of package.json.  Otherwise you will get duplicate import type warnings.
+
+``"modulePathIgnorePatterns": ["~/Projects/MyProject/node_modules/@myComponentScope"] ``
+
+**Tweak #2 - Jest - Haste Map Cache Purge**:  Cached haste map related woes.  When you make any non-trivial changes to package.json or other component structure, you may see more consistent results by blowing away the jest cache directory.  You find the cache pack by executing this:
+
+``jest --showConfig | ache``
 
 
 
@@ -182,45 +298,17 @@ TODO: experimentation required here, outside of a scrolling environment where au
 
 ### Webstorm
 
-Very cool debugging, very easy to enable.  Pretty lightweight RN project template, lighter than Ignite.
+Very cool debugging, very easy to enable.
 
-Webstorm hides some files in the /var/private..tmp are.  Not sure how these are maintained yet.  Nice that it is aware that you can have a ton of files getting in the way and accomodate that both visually and on the file system.
-
-### Atom
-
-Loving the "Hackable" nature of this nice light IDE.  Have customized the look and feel right down to specific syntax choices.  Will shared these ~/.atom/*.less changes down the road.
-
-## Handy References
-
-Besides the obvious https://facebook.github.io/react-native/
-
-### Good default gitignore file
-
-<https://github.com/gabergg/ReactNativeTodoList/blob/master/.gitignore>
-
-
-
-## What Does a React-Native Stack Look Like ?
-
-The first thing I needed, after a trello board to keep organized, was a diagram.  If I'm really going to pick this up, it will mean I'm inevitably going to be training others as well.  For me, a mental map is developed and maintained 100 times more efficiently with diagrams.
-
-Major Pieces of Reactive Native
-
-An [example](http://url.com/ "View")
-
-## How Does It Work ?
-
-## Development Environment Selection
-
-### Webstorm
+Webstorm hides some files in the /var/private..tmp area.  Not sure how these are maintained yet.  Nice that it is aware that you can have a ton of files getting in the way and accomodate that both visually and on the file system.
 
 ### Atom
+
+Loving the "Hackable" nature of this nice light IDE.  Have customized the look and feel right down to specific syntax choices.  Will share these ~/.atom/*.less changes down the road.
 
 <https://atom.io>
 
-Nice:
-
-- Launches from command line.
+Flow makes Atom a real marvel - extremely lightweight for the realtime power avoiding common syntax bugs and type-originating productivity.
 
 #### Nuclide
 
@@ -231,12 +319,14 @@ Installed as a package in Atom.  Settings > Install > type nuclide and search > 
 Facebook's "unified development environment"
 
 
-### Deco
+## Handy References
 
+Besides the obvious https://facebook.github.io/react-native/
 
-# Branches
+### Good default gitignore file
 
-bootstrap - Get this repo going, layout the study plan via an Outline in the Readme and build momentum
+<https://github.com/gabergg/ReactNativeTodoList/blob/master/.gitignore>
+
 
 # Key Terminal Commands
 
