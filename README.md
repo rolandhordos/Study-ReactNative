@@ -97,6 +97,7 @@ Success!  It took 2 lines in a buddybuild_prebuild.sh script to make this work. 
 
 Here's the repo: <https://github.com/rolandhordos/ExpoThree-Ejected>
 
+
 ### 0.2.0 Third Party Components
 
 This is a very important aspect of a successful software technology, that supports a grassroots movement to enrich the standard component library.  Here is hoping we can use 3rd party components just as easily as we have so far.
@@ -129,15 +130,18 @@ Not realizing it was Expo, I set my sights on the shortcomings in react-native-c
 
 And so we ended up with [a fork](https://github.com/rolandhordos/react-native-carousel) and [a component](https://yarnpkg.com/en/package/@rolandhordos/react-native-carousel) with lots of commit detail to follow the journey.
 
-## Next Release
 
 ### 0.2.1 Deeper Jest - Timers
 
 Expo-Five - simple state change over time, testable with Timer Mocking to simulate time.
 
-## Roadmap
+## Next Release
 
 0.2.2 Component Testing
+
+## Roadmap
+
+Architecture for maximum reuse across Web and Native.
 
 ### Flow
 
