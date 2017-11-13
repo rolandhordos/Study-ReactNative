@@ -4,36 +4,87 @@ import React from 'react';
 import App from './App';
 import renderer from 'react-test-renderer'
 
-
-it('renders without crashing', () => {
-  const rendered = renderer.create(<App />).toJSON();
-  expect(rendered).toBeTruthy();
-});
-
 describe('App', ()=> {
 
-  const app = renderer.create(<App/>)
-  expect(app).toBeDefined()
+  describe('Structure', () => {
 
-  const appViewHierarchy = app.toJSON()
-  expect(appViewHierarchy).toBeDefined()
+    const appComponent = renderer.create(<App/>)
+    expect(appComponent).toBeDefined()    // top level component, not an 'instance' of the App class
 
-  expect(appViewHierarchy).toMatchSnapshot()
+    const appInstance = appComponent.toTree().instance // this is a way to read the app as a logical graph including private
+    expect(appInstance).toBeDefined()
 
-  it('Has a Counter component', ()=> {
+    const appViewHierarchy = appComponent.toJSON()
+    expect(appViewHierarchy).toBeDefined()
+    expect(appViewHierarchy).toMatchSnapshot()
 
-    const counterView = appViewHierarchy.children[0]
-    expect(counterView.type).toBe('Text')
-  })
+    it('Has a Counter component', ()=> {
+      const counterView = appViewHierarchy.children[0]
+      expect(counterView.type).toBe('Text')
+    })
 
-  test('initial count is zero', ()=> {
+    test('initial count is zero', ()=> {
+      expect(appInstance.state.count).toBe(0)
+    })
 
-    const appTree = app.toTree()
-    expect(appTree.instance.state.count).toBe(0)
-  })
+    // jest.clearAllTimers() //
+    jest.clearAllMocks()  // otherwise keeping track of ex: 'setInterval' will increment each app instance
+  })  // Structure
 
-})
+  describe('Runtime', () => {
+    // Static setup
+    const expectedInterval = 1000 // ms
 
+    // In this test we want to see our increment event firing over time at a fixed rate.
+    //
+    test('timer steps at a fixed rate', () => {
+      // Setup mock structure
+      jest.useFakeTimers()
+      const app = renderer.create(<App/>).toTree().instance
+      app.increment = jest.fn()   // watch how the increment call is used by the system
+      // It shouldn't have fired yet
+      expect(app.increment).not.toBeCalled()
+      // Time jump to the next event
+      jest.runOnlyPendingTimers()
+      // Runtime should be configured to fire at a fixed rate
+      expect(setInterval.mock.calls.length).toBe(1) // jest did this part for us, mocking the timers
+      expect(setInterval.mock.calls[0][1]).toBe(expectedInterval)
+      // The app should have seen
+      expect(app.increment).toHaveBeenCalledTimes(1)
+      expect(app.state.count).toBe(0) // with increment mocked the count will not change when called
+
+      // Blink drive - jump 30 seconds
+      jest.runTimersToTime(30 * expectedInterval)
+      expect(app.increment).toHaveBeenCalledTimes(31)
+
+      expect(setInterval.mock).toMatchSnapshot()
+      jest.clearAllMocks()  // otherwise keeping track of ex: 'setInterval' will increment each app instance
+    })
+
+    // Here we expect the counter to advance over time.
+    //
+    test('counter advances over time', () => {
+      // Setup mock structure
+      jest.useFakeTimers()
+      const app = renderer.create(<App/>).toTree().instance
+      expect(app.state.count).toBe(0)
+      // Time jump 1 event
+      jest.runOnlyPendingTimers()
+      expect(app.state.count).toBe(1)
+      // Time jump to the 2nd event
+      jest.runOnlyPendingTimers()
+      expect(app.state.count).toBe(2)
+      // Blink drive - jump one minute
+      jest.runTimersToTime(60 * expectedInterval)
+      expect(app.state.count).toBe(62)
+    })
+
+    jest.clearAllMocks()  // otherwise keeping track of ex: 'setInterval' will increment each app instance
+  })  // Runtime
+
+})  // App
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 describe('Exploring Jest', () => {
 
   test('test is valid within describe', () => {
@@ -76,7 +127,11 @@ describe('Exploring Jest', () => {
           }
           validate = () => {
             if (this.count > Item.maxCount) {
+              this.error = "Maximum Count Exceeded"
               this.count = Item.maxCount
+            }
+            else {
+              this.error = null
             }
           }
         }
@@ -145,6 +200,7 @@ describe('Exploring Jest', () => {
   })  // describe mocking
 })  // describe Exploring Jest
 
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 describe('Exploring JS', () => {
 
   describe('Classes', () => {
@@ -176,9 +232,15 @@ describe('Exploring JS', () => {
 
   it('has fast enumeration', () => {
     const lots = [{ name: 'one'}, { name: 'two' }, { name: 'three'}]
+    let count: number = 0
+    let cat: string = ""
     for (var each of lots) {
-      console.log('saw ' + each.name)
+      // console.log('saw ' + each.name)
+      count = count + 1
+      cat = cat + each.name + ".."
     }
+    expect(count).toBe(3)
+    expect(cat).toBe('one..two..three..')
   })
 
   it('maintains "this" scope in method calls', () => {

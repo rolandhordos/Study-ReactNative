@@ -26,3 +26,17 @@ exports[` 1`] = `
   </Text>
 </View>
 `;
+
+exports[`App Runtime timer steps at a fixed rate 1`] = `
+Object {
+  "calls": Array [
+    Array [
+      [Function],
+      1000,
+    ],
+  ],
+  "instances": Array [
+    undefined,
+  ],
+}
+`;

@@ -131,11 +131,9 @@ And so we ended up with [a fork](https://github.com/rolandhordos/react-native-ca
 
 ## Next Release
 
-0.2.1 Deeper Jest - Timers
+### 0.2.1 Deeper Jest - Timers
 
 Expo-Five - simple state change over time, testable with Timer Mocking to simulate time.
-
-
 
 ## Roadmap
 
@@ -194,7 +192,32 @@ TODO: experimentation required here, outside of a scrolling environment where au
 
 ### Jest
 
+Validate method execution and state present within call.
+
+Sequenced return values - immediately jump to set of state at the start of a test.
+
+Favorite quote in the documentation: 
+> "try to avoid the temptation to implement logic inside of any function that's not directly being tested"
+
 **Q**: How can I verify default component behaviour that doesn't appear in the snapshot, for example flex direction if it's not explicitly set?
+
+#### Mocking Time
+
+Deep insight into runtime behavior.
+
+##### jest.useFakeTimers()
+
+Timey wimey tardis magic !  You can drive time thousands of times faster than real time (infinite loop detection kicks in at 100000 events).  Time jump to just the next event or fire up the Blink drive and *jest.runTimersToTime* jump to a specific point in time.
+
+Combined with Jest's normal function mocking which looks and works beautifully in ES6+ syntax and tracks state seen within the call.  ES7 bound instance methods work seamlessly this way as well -- easy to prove in the mock.calls state.
+
+Note: manually clear state at the end of a timer mock test with *jest.clearAllMocks*, otherwise other tests within the same suite can add to the state.  I was mistaken that Jest already did this on it's own between tests.  Incredible that this can be caught, let alone surfaced for you in mentorship fashion.  It's so easy to miss that the runtime can stack up calls to *setInterval* in an managed runtime.  In other platforms this dynamic - unexpected runtime / container residue can cumulatively cost weeks.  First hand, this found a recent iOS team I lead abandoning TeamCity for iOS CI purposes, never knowing why the Swift/ObjC testing was so unreliable compared to Xcode Server (identical tests).
+
+Still not done.  Now .. **snapshot this exposed state** as well.  I did not know previous to this that the same snapshot mechanism for the React view hierarchy can be used as:
+
+	expect(yourMock).toMatchSnapshot
+
+.. then automatically matched every single time you run.  This will catch unexpected state creep and race conditions *FOR YOU* with one line of code.
 
 
 ### Component Development
@@ -280,6 +303,8 @@ Webstorm hides some files in the /var/private..tmp area.  Not sure how these are
 Loving the "Hackable" nature of this nice light IDE.  Have customized the look and feel right down to specific syntax choices.  Will share these ~/.atom/*.less changes down the road.
 
 <https://atom.io>
+
+Flow makes Atom a real marvel - extremely lightweight for the realtime power avoiding common syntax bugs and type-originating productivity.
 
 #### Nuclide
 
