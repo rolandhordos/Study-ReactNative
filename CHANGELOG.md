@@ -1,4 +1,12 @@
-### 0.2.0 BuddyBuild
+### 0.2.1 Deeper Jest - Timers
+
+Expo-Five - simple component with state change over time, tested with Timer Mocking and mock snapshots to simulate time and prove behavior.  Developed by the tests.
+
+### 0.2.0 Third Party Components
+
+And so we ended up with [a fork](https://github.com/rolandhordos/react-native-carousel) and [a component](https://yarnpkg.com/en/package/@rolandhordos/react-native-carousel) with lots of commit detail to follow the journey.  More in the README both in this repo as well as the component source repo.
+
+### 0.1.1 BuddyBuild
 
 Build the Ejected app on a production CI system for distribution to devices.  Jest tests must pass before the app is built.  Light and fast.  2 lines in a prebuild script !  (though it took 25 builds to figure it out)
 
