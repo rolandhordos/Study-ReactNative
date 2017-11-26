@@ -145,6 +145,25 @@ Architecture for maximum reuse across Web and Native.
 
 ### Flow
 
+#### Update: 2017-11 new Project with Jest and Flow
+
+Check .flowconfig for required version - it needs to match or flow won't start.
+
+	yarn add flow-bin@0.53.0 flow-typed
+	
+	yarn list jest
+	
+Identify the exact jest version in use from that output, ex: 
+	└─ jest@20.0.4
+
+	./node_modules/.bin/flow-typed install jest@20.x.x
+
+	./node_modules/.bin/flow
+
+Ideally this ran saying "No errors!".  Many errors can be simply ignored, and depending on how you are using it they don't get in your way.  ATM I'm using Atom with tester-jest package, and it's easy to skip by the occasional red dot if you understand it's a temporary outlier.
+
+
+#### .. Archive ..
 Not sure which of these finally smoothed out the Jest globals issue:
 
 	yarn global add flow-typed
