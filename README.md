@@ -98,6 +98,8 @@ Success!  It took 2 lines in a buddybuild_prebuild.sh script to make this work. 
 Here's the repo: <https://github.com/rolandhordos/ExpoThree-Ejected>
 
 
+## Digging Deeper
+
 ### 0.2.0 Third Party Components
 
 This is a very important aspect of a successful software technology, that supports a grassroots movement to enrich the standard component library.  Here is hoping we can use 3rd party components just as easily as we have so far.
@@ -135,33 +137,26 @@ And so we ended up with [a fork](https://github.com/rolandhordos/react-native-ca
 
 Expo-Five - simple state change over time, testable with Timer Mocking to simulate time.
 
+
+### 0.2.2 Flow 
+
+Nuclide (and so Atom) came alive for me once got flow working, which was very easy in the end (see section "New Project with Jest and Flow".
+
+Flow is light, real-time, uplifts JS to a Swift-like level and still works with the Jest + Expo fun factor.  Flow did not bring the weight of the IDE bearing down, at all.
+
+#### Skipping Prop Types (for now)
+
+To be revisited with more published public component work, but for the original attraction of Prop Types has become a small subset of what Flow provides.
+
+
 ## Next Release
 
-0.2.2 Component Testing
+0.2.3 State Management - Redux
 
 ## Roadmap
 
 Architecture for maximum reuse across Web and Native.
 
-### Flow
-
-Not sure which of these finally smoothed out the Jest globals issue:
-
-	yarn global add flow-typed
-	flow-typed install jest@21.2.1
-	flow-typed create-stub react-native@0.49.5
-
-Also need to add quite a bit to the [ignore] section of .flowconfig:
-
-	; rh - modules not configured correctly for current flow env
-	<PROJECT_ROOT>/node_modules/react-native/local-cli
-	<PROJECT_ROOT>/node_modules/react-native/lib
-	<PROJECT_ROOT>/node_modules/react-native/Libraries
-	<PROJECT_ROOT>/node_modules/react-native-gesture-handler
-	<PROJECT_ROOT>/node_modules/react-native/ReactAndroid
-
-
-### Prop Types
 
 ### State
 
@@ -194,7 +189,8 @@ A try:  <https://stackoverflow.com/questions/43143258/flex-vs-flexgrow-vs-flexsh
 
 TODO: experimentation required here, outside of a scrolling environment where autolayout in constrained real-estate conditions can be observed.
 
-### Jest
+
+## Jest
 
 Validate method execution and state present within call.
 
@@ -223,8 +219,31 @@ Still not done.  Now .. **snapshot this exposed state** as well.  I did not know
 
 .. then automatically matched every single time you run.  This will catch unexpected state creep and race conditions *FOR YOU* with one line of code.
 
+## Flow
 
-### Component Development
+### Setup New Project with Jest and Flow (Nov 2017)
+
+Check .flowconfig for required version - it needs to match or flow won't start.
+
+	yarn add flow-bin@0.53.0 flow-typed
+	
+	yarn list jest
+	
+Identify the exact jest version in use from that output, ex: 
+	└─ jest@20.0.4
+
+	./node_modules/.bin/flow-typed install jest@20.x.x
+
+	./node_modules/.bin/flow
+
+Ideally this ran saying "No errors!".  Many errors can be simply ignored, and depending on how you are using it they don't get in your way.  ATM I'm using Atom with tester-jest package, and it's easy to skip by the occasional red dot if you understand it's a temporary outlier.
+
+
+
+
+
+
+## Component Development
 
 #### Using Components in Source Form - project+components
 

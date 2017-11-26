@@ -1,3 +1,7 @@
+### 0.2.2 Flow
+
+No IDE bloat here, flow is light, realtime, the ignition source for Nuclide, and another quality and productivity injection for your coding.
+
 ### 0.2.1 Deeper Jest - Timers
 
 Expo-Five - simple component with state change over time, tested with Timer Mocking and mock snapshots to simulate time and prove behavior.  Developed by the tests.
