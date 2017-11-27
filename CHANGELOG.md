@@ -1,6 +1,6 @@
 ### 0.2.2 Flow
 
-No IDE bloat here, flow is light, realtime, the ignition source for Nuclide, and another quality and productivity injection for your coding.
+No IDE bloat here, flow is light, realtime, the ignition source for Nuclide, and another quality productivity injection for your coding.
 
 ### 0.2.1 Deeper Jest - Timers
 

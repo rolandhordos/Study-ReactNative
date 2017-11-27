@@ -151,7 +151,11 @@ To be revisited with more published public component work, but for the original 
 
 ## Next Release
 
-0.2.3 State Management - Redux
+### 0.2.3 State Management - Redux
+
+#### Props, State, and Snapshots
+
+Take a close look at the snapshot for the Expo Six simple Redux counter.  We see Props, State (runtime not just constructor), and View Hierarchy Structure.  It's easy to see at once that this is both incredibly powerful from a quality managment standpoint, and also easy to abuse.  The same developers who would blindly mis-use dependency injection and mis-use mocking will likely default into mis-using snapshots.  Put some thought into what you snapshot and how that should change as your project grows.
 
 ## Roadmap
 
@@ -161,6 +165,8 @@ Architecture for maximum reuse across Web and Native.
 ### State
 
 - Redux
+- Redux and RX (Reactive Extensions)
+- Redux and Router
 
 ### Workflow
 
@@ -225,7 +231,7 @@ Still not done.  Now .. **snapshot this exposed state** as well.  I did not know
 
 Check .flowconfig for required version - it needs to match or flow won't start.
 
-	yarn add flow-bin@0.53.0 flow-typed
+	yarn add flow-bin@0.53.0 flow-typed --dev
 	
 	yarn list jest
 	
@@ -239,9 +245,15 @@ Identify the exact jest version in use from that output, ex:
 Ideally this ran saying "No errors!".  Many errors can be simply ignored, and depending on how you are using it they don't get in your way.  ATM I'm using Atom with tester-jest package, and it's easy to skip by the occasional red dot if you understand it's a temporary outlier.
 
 
+## State
 
+Redux begins as an elegant 8kb lightweight coder-friendly state machine.  Inside are rock solid architectural principles including functional programming and immutable data flow, avoiding side-effects and partial state corruption.
 
+Building on this is probably the most exciting grouping of npms I've yet discovered, including react-redux-router, redux-saga, redux-immutable, redux-observable, of course redux-persistent, and redux monitors (more time travel -- awesome).
 
+This is architecture I want in every single project whether mobile, web, or desktop.
+
+https://yarnpkg.com/en/package/redux
 
 ## Component Development
 
