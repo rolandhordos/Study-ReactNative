@@ -7,6 +7,6 @@ exports[`the Title renders consistently 1`] = `
   disabled={false}
   ellipsizeMode="tail"
 >
-  Title
+  TODO List
 </Text>
 `;
