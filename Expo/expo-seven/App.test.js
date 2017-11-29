@@ -2,24 +2,28 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Title from './App'
+import App from './App'
+import Title from './components/Title'
 
-describe('the Title', () => {
+describe('the App', () => {
 
-  const component = renderer.create(<Title/>)
+  const component = renderer.create(<App/>)
   const view = component.toJSON()
+  const instance = component.getInstance()
 
-  it('renders consistently', () => {
+  it('renders without crashing', () => {
     expect(component).toBeDefined()
     expect(view).toBeDefined()
-    expect(view).toMatchSnapshot()  // includes colors and alignment
+    expect(instance instanceof App)
+    // TODO: enable App snapshot matching when we're closer to assembling the entire app
+    // expect(view).toMatchSnapshot()  // includes colors and alignment
   })
 
-  it('has Text that says TODO List', () => {
+  it('has a Title', () => {
+    const titleView = view.children[0]
+    // const instance = component.toTree().instance
     expect(view.type).toBe('View')
-    const textView = view.children[0]
-    expect(textView.type).toBe('Text')
-    expect(textView.children[0]).toBe('TODO List')
+    expect(titleView.type).toBe('Text')
   })
 
 })

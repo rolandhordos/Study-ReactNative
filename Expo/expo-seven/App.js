@@ -1,27 +1,15 @@
 // @flow
 
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View } from 'react-native'
+import Title from './components/Title'
 
-export default class Title extends Component<{}> {
+export default class App extends Component<{}> {
 
   render() {
     return (
-      <View style={styles.header}>
-        <Text style={styles.title}>TODO List</Text>
-      </View>
+      <Title/>
       )
     }
 
 }
-
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: 'skyblue',
-    padding: 20
-  },
-  title: {
-    textAlign: 'center',
-    color: 'white'
-  }
-})
