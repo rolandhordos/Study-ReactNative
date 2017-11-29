@@ -12,7 +12,7 @@ describe('the Title', () => {
   it('renders consistently', () => {
     expect(component).toBeDefined()
     expect(view).toBeDefined()
-    expect(view).toMatchSnapshot()
+    expect(view).toMatchSnapshot()  // includes colors and alignment
   })
 
   it('has Text that says TODO List', () => {
