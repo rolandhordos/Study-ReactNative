@@ -16,8 +16,10 @@ describe('the Title', () => {
   })
 
   it('has Text that says TODO List', () => {
-    expect(view.type).toBe('Text')
-    expect(view.children[0]).toBe('TODO List')
+    expect(view.type).toBe('View')
+    const textView = view.children[0]
+    expect(textView.type).toBe('Text')
+    expect(textView.children[0]).toBe('TODO List')
   })
 
 })
