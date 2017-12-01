@@ -1,7 +1,8 @@
 // @flow
 
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
+import styles from '../Style'
 
 export default class Title extends Component<{}> {
 
@@ -14,14 +15,3 @@ export default class Title extends Component<{}> {
     }
 
 }
-
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: 'skyblue',
-    padding: 20
-  },
-  title: {
-    textAlign: 'center',
-    color: 'white'
-  }
-})
